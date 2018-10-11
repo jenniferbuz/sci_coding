@@ -15,8 +15,8 @@ If you are *brand new* to programming, you may find an introductory programming 
 | --------------------- | ------ | ---------- |
 |[0](./lessons/lesson0) |  Terminal navigation, version control with git, GitHub, licenses | Learn Git 1-4 |
 |[1](./lessons/lesson1) | Anaconda, installing packages, spyder, jupyter notebooks | N/A |
-|[2](./lessons/lesson2) | Stings, booleans, ifs, functions, style, docstrings, getting help  | Learn Python 1-4 |
-|[3](./lessons/lesson3) | Lists, dictionaries | Learn Python 5-7 |
+|[2](./lessons/lesson2) | Strings, booleans, ifs, functions, style, docstrings, getting help  | Learn Python 1-4 |
+|[3](./lessons/lesson3) | Lists, dictionaries, sets | Learn Python 5-7 |
 |[4](./lessons/lesson4) | Loops, iterators, comprehensions  | Learn Python 8-10 |
 |[5](./lessons/lesson5) | Finding packages, virtual environments, numpy, scipy, matplotlib, pandas | Learn Python 11-12 (optional) |
 |[6](./lessons/lesson6) | Putting it all together | N/A |
