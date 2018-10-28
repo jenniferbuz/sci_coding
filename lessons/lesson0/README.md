@@ -14,25 +14,25 @@ Despite huge leaps in graphical user interfaces for computers (Windows, OS X, he
 
 ### Terminal? Command line? Shell? Bash?
 
-Every click, scroll, and letter typed on your computer gets translated to a rudimentary language of 0s and 1s that your computer can understand. While we won't be learning binary or machine code for this *Python* course, we will learn to talk to the computer on a slightly lower level that we may be used to.
+Every click, scroll, and letter typed on your computer gets translated to a rudimentary language of 0s and 1s that your computer can understand. While we won't be learning binary or machine code for this *Python* course, we will learn to talk to the computer on a slightly lower level that we might be used to.
 
-All operating systems come with a way for you to talk to your computer on a lower level. Though it it called different names on different machines, this usually amounts to a text based prompt with a blinking cursor (like the one above). The default prompt to run commands on Windows is called  (intuitively)  the *Command Prompt*. On OS X, the default is the *Terminal*, and on Linux, the default is *Bash*. Unfortunately for us, each of these prompts has slight differences in the commands it recognizes, so if we are on different operating systems, we could quite literally be speaking (typing) different languages.
+All operating systems come with a way for you to talk to your computer on a lower level. Though it's called different names on different machines, this usually amounts to a text based prompt with a blinking cursor (like the one above). The default prompt to run commands on Windows is called  (intuitively)  the *Command Prompt*. On OS X, the default is the *Terminal*, and on Linux, the default is *Bash*. Unfortunately for us, each of these prompts has slight differences in the commands it recognizes, so if we are on different operating systems, we could quite literally be speaking different languages.
 
-The flavour of shell that we will use in this course is the Linux one, *Bash* (**B**ourne **A**gain **SH**ell) . My reasoning for this is three-fold. 
+The flavour of shell that we will use in this course is the Linux one, *Bash* (**B**ourne **A**gain **SH**ell). My reasoning for this is three-fold. 
 
-1) For historical reasons, Windows is organized fundamentally differently from UNIX based operating systems like Mac and Linux. I would also have to write all file paths with backslashes for Windows "\\" and forward slashes "/" for Mac and Linux (if you look at the code, you will see I had to write two \\ to get one \\ to show up for unrelated reasons and that's a pain).
+1) For historical reasons, Windows is organized fundamentally differently from UNIX based operating systems like Mac and Linux. This makes things like file paths, installing software and writing basic shell scripts a bit of a pain on Windows.
 
-2) An advantage of UNIX based filesystems is that they handle file permissions *reeeeeally* well. You cannot make a new file, folder or potentially dangerous script without knowing who can see, change or run that file. The notion of privacy and security is baked right into your every file, who knew! (more on permissions later)
+2) An advantage of UNIX based filesystems is that they handle file permissions *reeeeeally* well. You cannot make a new file, folder or potentially dangerous script without knowing who can see, change or run that it (more on permissions later).
 
-3) Because of how light-weight Linux has remained compared with the bloatiness of Windows and OS X (if you've been forced to update recently you know what I mean), Linux it is the default operating system loaded on many servers, superclusters and cloud computing platforms. If you want to run away with what you learn here and start running your code on the cloud, knowing how to navigate in bash is an essential skill.
+3) Because of how light-weight Linux is, it's the default operating system loaded on many servers, cloud computing platforms, superclusters, etc. If you want to run away with what you learn here and start running your code on the cloud, knowing how to get around in a Linux bash shell is an essential skill.
 
 *Disclaimer*: Most of what we do will also work on OS X because the Terminal and Bash are just different flavours of the standard UNIX *Bourne Shell* (sh). I highly reccommend that you follow along on a Linux system (this course was developed on Ubuntu 16.04) so that everything works out nicely (and because of number 3 above).
 
 ### Lament not, ye weary and burdened Windows and Mac users
 
-There are many ways to get access to a Linux environment for this course. If you happen to be in the Edwards Research Group, I suggest using your default operating system to **ssh** into one of the lab machines. This will probably require you to set up a **vpn** (virtual private network) to get access to the lab computer network so that you can "talk" to computers on that network. The advantage of doing this is that you will be able to access the lab computers from anywhere that you have an internet connection (secret advantage: the vpn makes all of your internet usage look like it's coming from the university network. Had trouble getting access to a paper? Start up your vpn and skirt that paywall).  
+There are many ways to get access to a Linux environment for this course. If you happen to be in the Edwards Research Group, I suggest using your default operating system to **ssh** into one of the lab machines. This will probably require you to set up a **vpn** (virtual private network) to get access to the lab computer network so that you can "talk" to computers on that network. The advantage of doing this is that you will be able to access the lab computers from anywhere that you have an internet connection (secret advantage: the vpn makes all of your internet usage look like it's coming from the university network. Had trouble getting access to a paper? Start up your vpn and skirt that paywall).
 
-The ssh (**S**ecure **Sh**ell) command will connect you to a computer on your network and give you a shell that you can use to issue commands that computer. If the computer you ssh is running a flavour of Linux (all of our lab mahcines do), your secure shell will be a **bash** shell. Pretty cool huh?
+The ssh (**S**ecure **Sh**ell) command will connect you to a computer on your network and give you a shell that you can use to issue commands to that computer. If the computer you ssh into is running a flavour of Linux (all of our lab mahcines do), your secure shell will be a **bash** shell. Pretty cool huh?
 
 #### Alternatives to the ssh method:
 
@@ -63,7 +63,7 @@ Throughout this course, code you should try will be written in blocks like these
 echo "Hello World"
 ```
 
-Did you type it into your bash shell? Seriously try it! Coding is a language and anyone who is bilingual can tell you that only reading will never make you fluent. 
+Did you type it into your bash shell? Seriously try it! Coding is a language and you need to practice it to become fluent.
 
 Before we find out where we're going, let's first see where we are (the **#** symbol is a marker that preceeds comments in bash. I will use comments to show my output so that you can compare your result. You don't need to copy the comments into your shell, but you can try it and see what happens!):
 
