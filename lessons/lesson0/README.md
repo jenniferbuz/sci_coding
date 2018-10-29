@@ -30,11 +30,11 @@ Each type of shell has slight differences in its *shell-scripting* language. The
 
 1) We will be speaking the same language.
 
-2) Windows command prompt is not a powerful when it comes to installing new software and handling file permissions (more on both of these later).
+2) Windows command prompt is not as powerful when it comes to installing new software and handling file permissions (more on both of these later).
 
 3) Bash is the default shell you will see on many servers, cloud computing platforms, superclusters, etc. Knowing the basics of bash is the first step to running your code on computers many times faster than the one you are reading this on.
 
-*Disclaimer*: Bash and the Mac Terminal are different flavors of the standard UNIX shell, so this lesson is probably also doable on a Mac (but I have not tested this). I highly reccommend that you use a Linux distribution (e.g. Ubuntu) for this course.
+*Disclaimer*: Bash and the Mac Terminal are different flavors of the standard UNIX shell, so this lesson is probably also doable on a Mac (but I have not tested this). I highly reccommend that you use a Linux distribution (e.g. Ubuntu) for this course (this course is developed and tested on Ubuntu 16.04).
 
 If your computer is running Windows or OS X, see below for how to get a bash shell on your computer.
 
@@ -143,7 +143,7 @@ pwd
 #/home/ctaiudovicic
 ```
 
-We made it back home! Now let's check out two shortcuts bash has for navigating, `.` and `..`. Try to change directory to `.`.
+We made it back home! Now let's check out two shortcuts bash has for navigating, (`.`) and (`..`). Try to change directory to (`.`).
 
 ```bash
 cd .
@@ -169,7 +169,7 @@ pwd
 #/
 ```
 
-Great! What do you think happens if we cd **..** while we are in the root directory?
+Great! What do you think happens if we cd `..` while we are in the root directory?
 
 ```bash
 cd ..
@@ -177,7 +177,7 @@ pwd
 #/
 ```
 
-Since root is the highest level directory, it has no parent directory, so cd **..** keeps us here at `/`.
+Since root is the highest level directory, it has no parent directory, so cd `..` keeps us here at `/`.
 
 Now let's take our handy shortcut back to home and start making our own directories.
 
@@ -205,7 +205,7 @@ ls -a
 
 Your `.bashrc` lets you customize your local bash shell (i.e. on your computer), and your `.bash_profile` lets you customize your remote bash shell (i.e. one that you ssh to). We won't worry about them for now.
 
-Let's make a directory that we can practice in. We do this with the **mkdir** (make directory) command. I will call mine "test".
+Let's make a directory that we can practice in. We do this with the **mkdir** (make directory) command. I will call mine `test`.
 
 ```bash
 mkdir test
@@ -254,7 +254,7 @@ Press `q` to exit less. Great! We've now learned to navigate directories, make o
 
 ### Manipulating files
 
-Say we want to duplicate  we use the `cp` command. Let's give our copy a creative new name like `test_file2.txt`. 
+Say we want to duplicate a file. To do this, we use the `cp` command. Let's give our copy a creative new name like `test_file2.txt`. 
 
 ```bash
 cp test_file.txt test_file2.txt
@@ -273,7 +273,7 @@ less test_file2.txt
 q
 ```
 
-Let's try to move our new file to our home directory. The `mv` (move) command. As we know, there are many way to specify the home directory. Try one of the following:
+Let's try to move our new file to our home directory using the `mv` (move) command. As we know, there are many ways to specify the home directory. Try one of the following:
 
 ```bash
 mv test_file2.txt ~ 
@@ -281,7 +281,7 @@ mv test_file2.txt ..
 mv test_file2.txt /home/<your_username>
 ```
 
-To test if we were successful, we *could* `cd ~` to go to home and run `ls` to see what is there. But we can also check without changing directories a path to `ls`.
+To test if we were successful, we *could* `cd ~` to go to home and run `ls` to see what is there. But we can also check without changing directories by giving a path to `ls`.
 
 ```bash
 ls ~
@@ -296,7 +296,7 @@ ls
 #awesome_file.txt
 ```
 
-What if we want to delete a file or directory? We do this with the **rm** (remove) command.
+What if we want to delete a file or directory? We do this with the `rm` (remove) command.
 
 ```bash
 rm awesome_file.txt
@@ -304,7 +304,7 @@ ls
 #
 ```
 
-We deleted our file, now let's delete our directory. First navigate up to the parent directory then remove the test directory with **rm**.
+We deleted our file, now let's delete our directory. First navigate up to the parent directory then remove the test directory with `rm`.
 
 ```bash
 cd ..
@@ -312,7 +312,7 @@ rm test/
 #rm: cannot remove 'test/': Is a directory
 ```
 
-Here, rm is looking out for us in case we accidentally try to delete a directory full of files we may need. To proceed with removing a directory we need to add an **option** to the `rm` command. Options are used to modify the behavious of bash commands. To see what options are available, we can use the `info` (information)command.
+Here, rm is making sure we don't accidentally delete a directory full of files we may need. To proceed with removing a directory we need to add an **option** to the `rm` command. Options are used to modify the behavious of bash commands. To see what options are available, we can use the `info` (information) command.
 
 ```bash
 info rm
@@ -340,7 +340,7 @@ And it's gone! Great, you now know how to move, copy, and delete files and direc
 ### Permissions
 Each file and folder in a UNIX filesystem has specific perissions defined for who on the system can read, write or execute that file.
 
-To show this, let's make a special type of text file called a **bash script**. A bash script is a text file that you can put bash commands into, and run by *executing* that file. All bash scripts start with a **shebang** (yes that's what it is called) and have a filename ending in `.sh`. Print the shebang ('#!/bin/bash') to a new file called `test_script.sh`. Make sure to use single quotes.
+To show this, let's make a special type of text file called a **bash script**. A bash script is a text file that you can put bash commands into, and run by *executing* that file. All bash scripts start with a **shebang** (yes that's what it is called) and have a filename ending in `.sh`. Print the shebang (`#!/bin/bash`) to a new file called `test_script.sh`. Make sure to use single quotes.
 
 ```bash
 echo '#!/bin/bash' > test_script.sh
@@ -377,7 +377,7 @@ The permissions of your files and folders are shown in the first 10 characters. 
 
 Char 1: `d` means directory, `-` means file.
 
-Chars 2-10: `rwx` means yes that person has permission to `read/write/execute` and `-` means no they cannot do that action.
+Chars 2-10: `rwx` means yes the specified user has permission to `read/write/execute` and `-` means no they cannot do that action. It goes `rwx` (User), `rwx` (Group), `rwx` (Others).
 
 ![File Permissions in Linux (c) 2017 Clofus innovations](./data/permissions.jpg)
 
@@ -403,7 +403,7 @@ For our test_script.sh, the first character is `-`, so we know it is a file.
 
 So, bringing it back to executing the command in `test_script.sh`, what happened? Notice the permissions `-rw-r--r--`. We can translate this to: the user, group and others (i.e. everyone) has permission to read `test_script.sh`, while only the owner has permission to write (edit) it, and nobody has permission to execute it.
 
-Now let's get to the fun part of giving ourself permission to run our script. We do this with the `chmod` (change mode) command. To specicy who to change permissions for (user / group / others / all) we will use `u/g/o/a`, and to specify which permission to change, we will use `r/w/x`. To add a permission, we use `+`, and to remove a permission, we use `-`.
+Now let's get to the fun part of giving ourself permission to run our script. We do this with the `chmod` (change mode) command. To specify who to change permissions for (user / group / others / all) we will use `u/g/o/a`, and to specify which permission to change, we will use `r/w/x`. To add a permission, we use `+`, and to remove a permission, we use `-`.
 
 Let's give (`+`) ourselves (user or `u`) permission to execute (`x`) the file `test_script.sh`.
 
@@ -429,7 +429,7 @@ There's a whole rabbit hole of permissions you can read about, but the key takea
 ### Wrapping up
 I hope this foray into the basics of bash has helped with your aversion to using the shell. We will build on these basics and apply them to actual scientific coding through the next 5 lessons. 
 
-I think a big source of shell anxiety comes from thinking you'll destroy the computer that you are using if you start typing into the black box. Now that you know about permissions, you know literally couldn't erase all the data on the machine if you tried. You can inadvertantly delete all of *your* data (never run (`rm -rf ~`), which is why it is useful to always have a backup and snapshots of your super important files.
+I think a big source of shell anxiety comes from thinking you'll destroy the computer that you are using if you start typing into the black box. Now that you know about permissions, you know you literally couldn't erase all the data on the machine if you tried. You can inadvertantly delete all of *your* data (never run (`rm -rf ~`), which is why it is useful to always have backups and snapshots of your super important files.
 
 How you ask?
 
