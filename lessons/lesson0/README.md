@@ -429,7 +429,7 @@ There's a whole rabbit hole of permissions you can read about, but the key takea
 ### Wrapping up
 I hope this foray into the basics of bash has helped with your aversion to using the shell. We will build on these basics and apply them to actual scientific coding through the next 5 lessons. 
 
-I think a big source of shell anxiety comes from thinking you'll destroy the computer that you are using if you start typing into the black box. Now that you know about permissions, you know you literally couldn't erase all the data on the machine if you tried. You can inadvertantly delete all of *your* data (never run (`rm -rf ~`), which is why it is useful to always have backups and snapshots of your super important files.
+I think a big source of shell anxiety comes from thinking you'll destroy the computer that you are using if you start typing into the black box. Now that you know about permissions, you know you literally couldn't erase all the data on the machine if you tried. You can inadvertantly delete all of *your* data (never run `rm -rf ~`), which is why it is useful to always have backups and snapshots of your super important files.
 
 How you ask?
 
