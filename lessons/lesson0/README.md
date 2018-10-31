@@ -63,7 +63,7 @@ If you do not have a convenient Linux machine to ssh to, you have a couple optio
 
 Now that we're all on the same page, open up your bash shell and let's practice some basic navigation.
 
-Throughout this course, code you should type yourself will be written in blocks like these (while you can copy and paste these blocks, I encourage typing them out to build some muscle memory):
+Throughout this course, the code that you should type will be written in blocks like these (while you can copy and paste these blocks, I encourage typing them out to build some muscle memory):
 
 ```bash
 echo "Hello World"
@@ -92,7 +92,7 @@ pwd
 
 Your computer's file system can be thought of as a tree. We will learn to navigate up and down directories (branches) and make new files (leaves). Your home directory is the trunk from which all your files and folders branch out. This isn't the start of the tree, though. 
 
-All Unix filesystems branch out from a single **root directory** (get it? like tree the root of a tree?). The root directory is simply the `/` at the start of every file path. 
+All Unix filesystems branch out from a single **root directory** (get it? like the root(s) of a tree?). The root directory is simply the `/` at the start of every file path. 
 
 ![file_tree, CSE 124 Fall 2017. (c) George Porter 2017](./data/file_tree.png)
 
@@ -203,7 +203,7 @@ ls -a
 #.bash_profile .bashrc
 ```
 
-Your `.bashrc` lets you customize your local bash shell (i.e. on your computer), and your `.bash_profile` lets you customize your remote bash shell (i.e. one that you ssh to). We won't worry about them for now.
+My home directory has a `.bashrc` and a `.bash_profile` in it (it is ok if you do not have these, we will work with them in the next lesson). The `.bashrc` lets you customize your local bash shell (i.e. on your computer), and your `.bash_profile` lets you customize your remote bash shell (i.e. one that you ssh to). We won't worry about them for now.
 
 Let's make a directory that we can practice in. We do this with the **mkdir** (make directory) command. I will call mine `test`.
 
@@ -346,10 +346,12 @@ To show this, let's make a special type of text file called a **bash script**. A
 echo '#!/bin/bash' > test_script.sh
 ```
 
-We added the shebang, but we haven't added any commands yet. Let's open `test_script.sh` to edit it (there are different programs that can be used for this. I use `vim`, but `emacs` looks more like a regular text editor).
+We added the shebang, but we haven't added any commands yet. Let's open `test_script.sh` to edit it. 
+
+There are several basic text editors that different people will try to convince you is best. The actual best one is the one you are most comfortable with. Some common editors are vi/vim, emacs, nano and gedit. If you've never used any of these, I recommend emacs because it works pretty similarly to Windows/Mac basic editors.
 
 ```bash
-emacs test_script.sh # or 'vim test_script.sh'
+emacs test_script.sh # or 'nano test_script.sh'
 ```
 
 In the text editor, start a new line after the shebang and add `echo "Hello World"`.
@@ -359,7 +361,7 @@ In the text editor, start a new line after the shebang and add `echo "Hello Worl
 echo "Hello World"
 ```
 
-Make sure to save and then quit the text editor. Now let's run our bash script. We do this by specifying the file location with the `.` shorthand we learned earlier.
+Make sure to save and then quit the text editor (some editors try to trap you in. If this is the case, Google "How to exit <my_text_editor>"). Now let's run our bash script. We do this by specifying the file location with the `.` shorthand we learned earlier.
 
 ```bash
 ./test_script.sh
