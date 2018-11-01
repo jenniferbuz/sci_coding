@@ -1,3 +1,3 @@
-# Lesson _
+# Lesson 1
 Coming soon!
 
