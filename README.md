@@ -7,7 +7,7 @@ This short course is targeted at students and scientists looking to get started 
 
 We will cover a range of topics like basic command line navigation, collaboration with Git, basic Python scripting and sharing reproducible code with Jupyter notebooks.
 
-This course recommends two short online courses to be completed concurrently with the lessons (see the schedule of pre-class homework in the [Syllabus](#syllabus) below). Those courses are [Learn Git](https://www.codecademy.com/learn/learn-git) (approx. 1-2 hrs) and [Learn Python](https://www.codecademy.com/learn/learn-python) (approx. 8-10 hrs). If you are following along weekly, I would budget about 1 hr per week for the in class lessons and 1-2 hrs per week for the pre-class homework.
+This course recommends two short online courses to be completed concurrently with the lessons (see the schedule of pre-class homework in the [Syllabus](#syllabus) below). Those courses are [Learn Git][learn-git] (approx. 1-2 hrs) and [Learn Python][learn-python] (approx. 8-10 hrs). If you are following along weekly, I would budget about 1 hr per week for the in class lessons and 1-2 hrs per week for the pre-class homework.
 
 Both of the homework courses are offered for free on [codecademy.com](https://www.codecademy.com/) (you will need to sign up for a Codecademy account).
 
@@ -16,18 +16,21 @@ Both of the homework courses are offered for free on [codecademy.com](https://ww
 | Lesson                | Topics | Codecademy pre-class homework |
 | --------------------- | ------ | ----------------------------- |
 |[0](./lessons/lesson0) | Terminal navigation, bash basics, permissions | N/A |
-|[1](./lessons/lesson1) | Git, GitHub, licenses, Anaconda | Learn Git 1-4 |
-|[2](./lessons/lesson2) | Spyder, Jupyter, strings, indexing, booleans, ifs  | Learn Python 1-3 |
-|[3](./lessons/lesson3) | Functions, style, docstrings, lists, dictionaries | Learn Python 4-5 |
-|[4](./lessons/lesson4) | Loops, comprehensions, sets | Learn Python 6-9 |
-|[5](./lessons/lesson5) | Anaconda packages, virtual environments, numpy, scipy, matplotlib, pandas | Learn Python 9-10 |
-|[6](./lessons/lesson6) | Putting it all together | Learn Python 11-12 |
+|[1](./lessons/lesson1) | Git, GitHub, licenses, Anaconda | [Learn Git][learn-git] 1-4 |
+|[2](./lessons/lesson2) | Spyder, Jupyter, strings, indexing, booleans, ifs  | [Learn Python][learn-python] 1-3 |
+|[3](./lessons/lesson3) | Functions, style, docstrings, lists, dictionaries | [Learn Python][learn-python] 4-5 |
+|[4](./lessons/lesson4) | Loops, comprehensions, sets | [Learn Python][learn-python] 6-9 |
+|[5](./lessons/lesson5) | Anaconda packages, virtual environments, numpy, scipy, matplotlib, pandas | [Learn Python][learn-python] 9-10 |
+|[6](./lessons/lesson6) | Putting it all together | [Learn Python][learn-python] 11-12 |
 
-The Learn Git course can be found at [https://www.codecademy.com/learn/learn-git](https://www.codecademy.com/learn/learn-git).
+The Learn Git course can be found at https://www.codecademy.com/learn/learn-git.
 
-The Learn Python course can be found at [https://www.codecademy.com/learn/learn-python](https://www.codecademy.com/learn/learn-python).
+The Learn Python course can be found at https://www.codecademy.com/learn/learn-python.
 
 These are both free courses, but Codecademy will try to get you to pay for extra stuff. You only need your free account to do these 2 courses, i.e. *don't pay for stuff!*
+
+[learn-git]: https://www.codecademy.com/learn/learn-git
+[learn-python]: https://www.codecademy.com/learn/learn-python
 
 ## About
 This short course is based on source material presented to the Solar System Exploration Group at University of Toronto in 2015 and 2016 by Christian Tai Udovicic and Alexandre Boivin. It has been adapted for the Christopher Edwards Group at Norhern Arizona University.
