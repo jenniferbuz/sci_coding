@@ -430,13 +430,43 @@ There's a whole rabbit hole of permissions you can read about, but the key takea
 
 
 ## Downloading and Installing Anaconda
+THis course will rely heavily on the use of [Anaconda](https://www.anaconda.com/), a package manager for Python packages and their dependencies. Several useful scientific coding package are available by default in Anaconda, and we will explore how to make **environments** where we get get the exact packages we need for a given project.
 
 ### Downloading with wget
+An advantage of Anaconda is it does not require administrator privileges to install on a machine. To download Anaconda on Linux, head to the [download link](https://www.anaconda.com/download/#linux), click on the Linux tab, and right click -> "Copy link address" of the big Download button.
 
-### Installing without permissions?
+![download anaconda](./data/download.png)
+
+Now copy and paste the link into your shell, and download it with the `wget` command.
+```bash
+wget https://repo.anaconda.com/archive/Anaconda3-5.3.0-Linux-x86_64.sh
+```
+
+Once the file has downloaded, you can run it like any bash script (notice it is a `.sh` file), with the bash command.
+```bash
+bash https://repo.anaconda.com/archive/Anaconda3-5.3.0-Linux-x86_64.sh 
+```
+
+This will prompt you to read a licence file. Scroll to the bottom and type `yes`. Then it will install lots of things. It will also leave a note at the bottom about needing to `source` a script. This is just a little script that makes the `conda` command available from the shell. Unfortunately, we need to run this command each time we open a new shell or ssh to a new machine.
+
+Luckily, there are special files that will automatically run script for you when you open a shell.
 
 ### Exporting a path in .bashrc or .bash_profile
+For a local shell (one on your computer), we use the `~/.bashrc`.
 
+For a shell opened with **ssh**, we use the `~/.bash_profile`.
+
+Open the bash config file for your particular case in your editor of choice and copy and paste the source line into that file.
+
+Now the source comand will be run each time your shell opens and you will have access to the `conda` command. To see if it worked, source your bash config file and then type `conda --version`.
+
+```bash
+source ~/.bash_profile # or source ~/.bashrc
+conda --version
+# conda 4.5.11
+```
+
+Great! Now you know how to download from a link with wget and Anaconda is set up to be used for the rest of the course.
 
 ### Wrapping up
 I hope this foray into the basics of bash has helped with your aversion to using the shell. We will build on these basics and apply them to actual scientific coding through the next 5 lessons. 

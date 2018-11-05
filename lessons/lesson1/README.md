@@ -434,7 +434,7 @@ git clone https://github.com/<user>/sci_coding.git
 # Unpacking objects: 100% (69/69), done.
 ```
 
-Now you have a copy of the coding course locally! 
+Now you have a copy of the coding course locally which you can edit at will! In a future lesson, we will look at how you can edit a fork of a repo and propose a change to the original repo via a **pull request**.
 
 ## Whew
 Now that you know the basics of git, version control, and setting up remotes on GitHub, we're all set to start making reproducible and sharable scientific code with Python!
