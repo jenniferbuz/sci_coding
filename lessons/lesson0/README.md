@@ -428,6 +428,16 @@ There's a whole rabbit hole of permissions you can read about, but the key takea
 - you can make your own bash scripts executable with `chmod u+x file.sh`
 - you don't have to worry about inadvertantly editing or deleting system files or other users' file on your shared computer, *because you don't have permission*
 
+
+## Downloading and Installing Anaconda
+
+### Downloading with wget
+
+### Installing without permissions?
+
+### Exporting a path in .bashrc or .bash_profile
+
+
 ### Wrapping up
 I hope this foray into the basics of bash has helped with your aversion to using the shell. We will build on these basics and apply them to actual scientific coding through the next 5 lessons. 
 
