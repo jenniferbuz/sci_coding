@@ -15,8 +15,8 @@ Both of the homework courses are offered for free on [codecademy.com](https://ww
 
 | Lesson                | Topics | Codecademy pre-class homework |
 | --------------------- | ------ | ----------------------------- |
-|[0](./lessons/lesson0) | Terminal navigation, bash basics, permissions | N/A |
-|[1](./lessons/lesson1) | Git, GitHub, licenses, Anaconda | [Learn Git][learn-git] 1-4 |
+|[0](./lessons/lesson0) | Terminal navigation, bash basics, permissions, installing Anaconda | N/A |
+|[1](./lessons/lesson1) | Git, GitHub, licenses | [Learn Git][learn-git] 1-4 |
 |[2](./lessons/lesson2) | Spyder, Jupyter, strings, indexing, booleans, ifs  | [Learn Python][learn-python] 1-3 |
 |[3](./lessons/lesson3) | Functions, style, docstrings, lists, dictionaries | [Learn Python][learn-python] 4-5 |
 |[4](./lessons/lesson4) | Loops, comprehensions, sets | [Learn Python][learn-python] 6-9 |

@@ -220,7 +220,7 @@ git log
 #     Add hello world to file1.txt
 ```
 
-Git log gives detailed info including the long commit address, the author, the full date and the commit message. This can be overwhelming, especially when dispaying a large number of commits. Let's make `git log` cleaner with the `--oneline` flag.
+Git log gives detailed info including the long commit address, the author, the full date and the commit message. This can be overwhelming, especially when dispaying a large number of commits. Let's make `git log` cleaner with the `--decorate` and `--oneline` flags.
 ```bash
 git log --oneline
 # 00eb672 (HEAD -> master) Make empty file f2.txt
@@ -242,7 +242,7 @@ git status
 
 Great, now our last commit, which consisted of the new file `f2.txt`, is back in the staging area. What do you think happed to the commit history?
 ```bash
-git log --oneline
+git log --decorate --oneline
 # 8a7625f (HEAD -> master) Add hello world to file1.txt
 ```
 
@@ -287,7 +287,7 @@ git log --oneline
 # f7b2678 (HEAD -> master) Add hello world to file1.txt
 ```
 
-Note that there is still only one commit in history with the same message, but that the commit ID changed! You have re-written history! This is ok to do locally, beware re-writing history in a repo shared with your collaborators.
+Note that there is still only one commit in history with the same message, but that the commit ID changed! You have re-written history! This is ok to do locally, but beware re-writing history in a repo shared with your collaborators.
 
 Getting the hang of moving files from the working directory to the staging area and into history is the first step to becoming fluent in Git. Don't worry if it's still a little unnatural, we will get lots of practice in the coming weeks!
 
@@ -308,7 +308,7 @@ The [Student Developer Pack](https://help.github.com/articles/applying-for-a-stu
 [Educators and Academic Researchers](https://help.github.com/articles/about-github-education-for-educators-and-researchers/) can also apply for unlimited private repos.
 
 ### Our first GitHub repo
-To make our first GitHub repository, first log in to https://github.com. If you are just signing up for GitHub, make sure to update your `git config --global` with the same email address you use to sign up.
+To make our first GitHub repository, first log in to https://github.com. If you are just signing up for GitHub, make sure to update your `git config --global user.email <you@somewhere.com>` with the same email address you use to sign up.
 
 Next make a **new repository** (either with the new repository button on your profile, or with the `+` in the upper right).
 
