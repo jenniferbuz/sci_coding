@@ -17,8 +17,8 @@ Both of the homework courses are offered for free on [codecademy.com](https://ww
 | --------------------- | ------ | ----------------------------- |
 |[0](./lessons/lesson0) | Terminal navigation, bash basics, permissions, installing Anaconda | N/A |
 |[1](./lessons/lesson1) | Git, GitHub, licenses | [Learn Git][learn-git] 1-4 |
-|[2](./lessons/lesson2) | Spyder, Jupyter, strings, indexing, booleans, ifs  | [Learn Python][learn-python] 1-3 |
-|[3](./lessons/lesson3) | Functions, style, docstrings, lists, dictionaries | [Learn Python][learn-python] 4-5 |
+|[2](./lessons/lesson2) | Jupyter, strings, indexing, booleans, ifs  | [Learn Python][learn-python] 1-3 |
+|[3](./lessons/lesson3) | Functions, methods, lists, dictionaries | [Learn Python][learn-python] 4-5 |
 |[4](./lessons/lesson4) | Loops, comprehensions, sets | [Learn Python][learn-python] 6-9 |
 |[5](./lessons/lesson5) | Anaconda packages, virtual environments, numpy, scipy, matplotlib, pandas | [Learn Python][learn-python] 9-10 |
 |[6](./lessons/lesson6) | Putting it all together | [Learn Python][learn-python] 11-12 |

@@ -1,47 +1,106 @@
 # Lesson 2: Python basics
-Welcome to the first *real* coding lesson! In this lesson we will explore the basics of Python, as well as learn to work in *interactive Python* or **iPython** notebooks.
+In this lesson we will explore the basics of Python, as well as learn to work in **Jupyter notebooks** (formerly known as *interactive Python* or **iPython** notebooks).
 
 ## Why Python?
-Many programming languages exist, but Python has quickly risen in popularity among programmers and scientists alike. Different sources will cite different reasons why Python continues to grow in popularity and will soon be the [third most popular programming language](https://www.tiobe.com/tiobe-index/), but I'd boil it down to one main reason: it's *relatively easy to learn*. While many programming languages punish you for forgetting strange brackets `{}`, and allow you to get away with ugly code (you can jam 1000 lines of bash into one line and it would work fine), Python was designed to put style and readibility first, making it easier to pick up for beginners. 
+Python has quickly risen in popularity among programmers and scientists alike. It is a relatively new language compared to heavy-hitters like **C** and **JAVA**, but it will soon be the [third most popular programming language](https://www.tiobe.com/tiobe-index/). One of the main reasons Python has become so popular is that it is *relatively easy to read and learn*. Python was designed to put style and readibility first, making it easier to pick up for beginners. It is also quite intuitive (at least for English speakers), as many programs you write will read almost word-for-word as you would describe them in plain English. This is not to say that learning the ins-and-outs of Python is easy. Like any language, it takes a lot of practice and mistakes to learn.
 
-Python is also a great first programming language because it is intuitive (for English speakers). Some scripts you write could be read word-for-word as plain-English commands to the computer. This is not to say that learning the ins-and-outs of Python is easy. Like any language, it takes a lot of practice and mistakes to learn. But we use it for this introductory course in part because it is much more accessible than other programming languages for beginners.
-
-The other reason we use Python is because it is free and a large community has grown around developing excellent open-source (free) **packages** for it. So many, in fact, that a good part of this course will be dedicated to finding, installing and managing packages with Anaconda.
+Other reasons we use Python is because it is free and well supported. A large community has grown around developing excellent open-source (free) code for Python. Many well-tested packages for scientific analysis, image processing, and machine learning have been written specifically for Python and are freely available to the public. A good portion of this course will focus on finding, installing, and managing Python packages with Anaconda to take advantage of the huge body of open source code that you can use for your research.
 
 
 ## Jupyter (iPython notebooks)
-Python differs from some other programming languages in that it is not **compiled**, but **interpreted**. When you write code in **C** or **Java**, that code is first *compiled* (translated into machine code), and then run. On the other hand, a Python program is *interpreted* line by line, completely skipping the compiling step. What does this mean for us?
+A **Jupyter Notebook** is a very cool tool that you can use to write, test, and create pretty documents of your code, all from your favorite web browser. At the end of this course, you will write up something to the effect of [this](http://nbviewer.jupyter.org/gist/jhemann/4569783) and post it to GitHub so that anyoe can view and reproduce your results.
 
-The fact that Python is interpreted allows us to work with it *interactively*. We can run one line of code, see what happens, and then run another line of code. I nrough terms, this is much harder in C or Java where you would need to run a line of code, compile, check the output, add another line of code, compile, check the output, etc.
+For now, we'll use a cool website called [mybinder](https://mybinder.org/) that lets you share interactive Jupyter notebooks with others. This is a great way to show off your science analysis and allow anybody to step through each part of your code to reproduce your results.
 
-To take advantage of this interaction, the *IPython Notebook* was developed. Now called the **Jupyter Notebook**, this tool will allow us to write code, run it, and create pretty documents to share, all from the same place. At the end of this lesson, you will be able to write up something to the effect of [this](http://nbviewer.jupyter.org/gist/jhemann/4569783) and give someone a link to view it.
+The first part of this lesson is the following quick tutorial on Jupyter notebooks: Feel free to play around until you are comfortable. More documentation is available [here](https://jupyter-notebook.readthedocs.io/en/latest/notebook.html)
 
-For now, we'll use a cool website called [mybinder](https://mybinder.org/) that lets you share interactive Jupyter notebooks with others. This is a great way to show off your science analysis in a reproducible way. Head over to
-[mybinder jupyter tutorial](https://mybinder.org/v2/gh/cjtu/sci_coding/master?filepath=lessons%2Flesson2%2Fdata%2Fjupyter_tutorial.ipynb) to get started with Jupyter notebooks.
+[Part 1: Jupyter Tutorial](https://mybinder.org/v2/gh/cjtu/sci_coding/master?filepath=lessons%2Flesson2%2Fdata%2Fjupyter_tutorial.ipynb)
+
 
 ## Making your own Jupyter Notebook
-Starting a Jupyter notebook is simple on your own computer. With Anaconda installed, you simply type `jupyter notebook` into the shell and then in a web browser (prefereably *Mozilla Firefox* or *Google Chrome*) head to `localhost:8080`. If you are working over **ssh**, there are a couple extra steps.
 
+### Running Jupyter locally with Anaconda installed
+Starting a Jupyter notebook is simple on your own computer. With Anaconda installed, you simply type `jupyter notebook` into the shell and then in a web browser (prefereably *Mozilla Firefox* or *Google Chrome*) head to `localhost:8080`. If the Jupyter environment prompts you to log in, find the `TOKEN` in the shell where you started the Jupyter notebook and copy/paste it into the password field. 
+
+To stop a Jupyter environment, type `ctrl+c` into the shell, then type `y` when it prompts you.
+
+If you are working over **ssh**, there are a couple extra steps.
 
 ### Configuring Jupyter for ssh
-If you are connecting to a remote computer (e.g. with **ssh**), we will need to add an additional step. If you have tried to open a browser over ssh or in a virtual machine before, you may have noticed that it is very slow and will lag when typing. This is because the entire view of the reomte computer's screen must be sent over the internet, second by second. We can get around this hitch by using some special options to configure Jupyter, and then using **ssh** to see the output on our local web browser. This part is a little technical, but at the end of it, you will have a nice interface to write and test code on a remote server.
+If you are writing your code on a remote ocomputer (with Anaconda installed), we will need a couple additional steps. This part is a little technical, but at the end of it, you will have a nice Jupyter environment set up that will run your code on the remote server.
+
+#### startjupyter
+First we need to start Jupyter on the remote server, but we will do this in a particular way. The following command will start Jupyter on a particular `port` on the remote computer that we can then ssh to from our local computer.
+```bash
+#!/bin/bash
+jupyter notebook --no-browser --port=8080'
+```
+
+#### connectjupyter
+Now we need to ssh to the port that we started Jupyter on, and tell our local computer which local port we will go to in order to see the remote port. This is called **port forwarding**. If you have a UNIX shell / Terminal, run the command below. If on Windows, you can see a guide on port forwarding with Putty [here](https://www.linode.com/docs/networking/ssh/ssh-connections-using-putty-on-windows/#port-forwarding-ssh-tunnels-with-putty).
+```bash
+ssh -v -N -L 8080:localhost:8080 <YOUR_SSH_ID>@<REMOTE_HOST>
+```
+
+Now you can head to a local web browser (again, Firefox and Chrome work best), and head to `localhost:8080`. You should see the Jupyter environment that you started on the remote computer! If it asks you to log in, copy the `TOKEN` from the remote shell into the password field. 
+
+### Creating bash scripts to simplify the above
+The above two commands are hard to remember and can be confusing since one needs to be run locally and one via ssh. We know from previosu lessons how to make executable bash scripts, so let's make a couple simple scripts that are easier to remember.
+
+#### bash scripting startjupyter
+Create a directory in your home directory of the **remote machine** called `bin/`
+```bash
+mkdir ~/bin
+```
+
+Create a file in the  `~/bin` directory called `startjupyter`. Copy the following into it.
+```bash
+#!/bin/bash
+jupyter notebook --no-browser --port=8080'
+```
+
+Make `startjupyter` executable with `chmod u+x`.
+```bash
+chmod u+x ~/bin/startjupyter
+```
+
+Add the `~/bin` directory to your `PATH` by adding the following to your `.bash_profile`.
+```bash
+export PATH=$PATH:/home/<your_username>/bin
+```
+
+Source your `.bash_profile` so that the change takes effect.
+```bash
+source ~/.bash_profile
+```
+
+Now you can start a Jupyter environment on port 8080 by typing `startjupyter` on your remote machine.
+
+#### bash scripting connectjupyter
+Create a file on your **local machine** in the  `/usr/local/bin/` directory called `connectjupyter`. Copy the following into it.
+```bash
+#!/bin/bash
+remoteport=${1:-8080}
+localport=${2:-8080}
+ssh -v -N -L ${localport}:localhost:${remoteport} <YOUR_SSH_ID>@<REMOTE_HOST>
+```
+
+Make `startjupyter` executable with `chmod u+x`.
+```bash
+chmod u+x `/usr/local/bin/startjupyter`
+```
+
+Now you can connect to your remote Jupyter environment with the `connectjupyter` command. If for some reason the remote port 8080 was taken, you can specify a remote port with te first option, i.e. `connectjupyter -8081`. If your local port 8080 is taken, you can specify it with the second option, i.e. `connectjupyter -8081 -8081`.
+
+Now open up your web browser and head to `localhost:8080` (or whichever localport you specified in `connectjupyter`).
+
+## Python Practice
+Hopefully you were able to get a Jupyter environment up and running (if not let me know so that I can update the instructions above). If you're having trouble, you can complete the rest of today's tutorial online at the link below:
+
+[Part 2: Python Practice](https://mybinder.org/v2/gh/cjtu/sci_coding/master?filepath=lessons%2Flesson2%2Fdata%2Flesson2.ipynb).
 
 
-## Patient Python practice prepares proficient Pythonistas
-Hopefully you were able to get a Jupyter environment up and running. If not let me know after class so that I can help you set it up, but for now you can complete the rest of today's tutorial online [here](https://mybinder.org/v2/gh/cjtu/sci_coding/master?filepath=lessons%2Flesson2%2Fdata%2Flesson2.ipynb).
+## That's it!
+Once you have completed the two Jupyter tutorials, you are finished for today! If you were unable to get a Jupyter environment running, let me know and I can give you a hand!
 
-Now that we all have a **Jupyter** environment running in a browser, we can get to practicing some Python. This time the code in the following code blocks should be written in a `code` cell in Jupyter. Remember you can run code by pressing the `>| Run` button.
-
-### Data structures
-One of the most important things to learn about a programming language is how it stores data. Data can take many forms (True/False, integer, letters), and each programming language has different **data structures** that can store this data. In science, most of our computations rely on effectively gathering, manipulating and plotting data. Choosing the correct data structure for the job can also improve the speed of our code. Because data structures are so important, we will spend the next couple lessons practicing Python's basic data types.
-
-#### Strings
-The pre-class homework should have familiarized you with the **string**, a basic data type in Python. Strings are how we store charaters or text in Python. 
-
-*Note*: While the single quotes `''` and double quotes `""` are interchangeable in Python, it is good *style* to stay consistant in the type of quotes you use to create strings. I use single quotes `''` so that if I need quotations, I can write `'...and he said, "Hello World"'`
-
-#### Booleans
-
-
-#### if - elif - else (control flow)
-
+Reminder that the pre-class homework for next lesson is Codecademy's [Learn-Python](https://www.codecademy.com/learn/learn-python) modules 4 and 5.
