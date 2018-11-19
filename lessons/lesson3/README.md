@@ -1,39 +1,10 @@
 # Lesson 3
+Today's lesson is an overview of **Objects**, **Classes**, **Lists**, **Tuples**, **Sets**, and **Dictionaries**. One of the most important choices to make when working with data in Python is how to store that data. We will be exploring this idea in the interactive Jupyter notebooks below. They can be accessed in the `/sci_coding/lessons/lesson3/data/` directory if you have forked the repository and have a local Jupyter server working. Otherwise, they can be done online via the `mybinder.org` links below.
 
-## Objects
-Python is what is called an **object oriented** programming language. This means that everything we make or interact with in Python is an **object**. We already know how to make **String** objects, and today we will learn to make **List** and **Dict** objects. Let's start with the **List**.
+[1_Objects_Methods_and_Functions_oh_my!.ipynb](https://mybinder.org/v2/gh/cjtu/sci_coding/master?filepath=lessons%2Flesson3%2Fdata%2F1_Objects_Methods_and_Functions_oh_my!.ipynb)
 
+[2_Lists_and_Tuples.ipynb](https://mybinder.org/v2/gh/cjtu/sci_coding/master?filepath=lessons%2Flesson3%2Fdata%2F2_Lists_and_Tuples.ipynb)
 
+[3_Sets_and_Dictionaries.ipynb](https://mybinder.org/v2/gh/cjtu/sci_coding/master?filepath=lessons%2Flesson3%2Fdata%2F3_Sets_and_Dictionaries.ipynb)
 
-Say we want to make a **Person** object to store data about people in Python. Then we would define a **class** called **Person** that represents all data we can store about a given person. Then if we made a particular person, we call that an **instance** of the **Person** class. So:
-```Python
-class Person:
-	"""An onject that stores data about people"""
-	# Some implementation details here
-
-person1 = Person()
-```
-
-Now `person1` is a given person, or an *instance of the class Person*. Now what makes a given person unique? They could have a *name*, a *date of birth*, a *country of birth*, etc. These would be **attributes** of our object. 
-```Python
-person1.name = 'Melissa'
-person1.dob = 'March 20, 1984'
-person.birthplace = 'United States'
-```
-
-Let's say there are a couple actions that a Person can can. These woul dbe defined as **methods** in the Person class, and each of these methods can be called on any instance of Person. Methods are called with `()` parentheses. Any variables that are put in the parantheses are called **arguments** of the method.
-```Python
-person1.walk() # Walk doesn't take any argumemts
-person1.talk('Hello') # Talk has one argument, a String to say
-```
-
-
-
-## Functions
-
-
-## Lists and Dictionaries
-
-
-## Jupyter practice
-
+As always, let me know if you have any questions! The homework for next week is [Learn Python](https://www.codecademy.com/learn/learn-python) modules 6-9. We will cover loops and delve into managing packages in Anaconda.
