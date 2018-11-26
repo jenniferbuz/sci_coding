@@ -91,3 +91,5 @@ The following short tutorial will introduce loops, a useful programming concept 
 Hopefully you now have a grasp of the basics of Python and how to find help when you get stuck. Along the way, we learned some tools like Git, Anaconda and Jupyter that I hope you will use to improve the reproducibility of your scientific code, as well as the ease of working with collaborators.  
 
 Next week we will put all we've learned together and collaborate on a research problem in Git.
+
+The recommended optional homework for this week is [Learn Python 10-12](https://www.codecademy.com/learn/learn-python). It will cover some advances tricks in Python, give a better overview of classes and go over how to read and write data from and to files in Python.
