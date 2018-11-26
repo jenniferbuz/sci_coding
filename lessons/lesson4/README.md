@@ -10,7 +10,7 @@ In this interactive example we will learn to import modules with two core scient
 Anaconda exists to simplify the installation and management of Python packages. It automatically installs *dependencies*, other packages that the package you are using needs to work properly. It also checks those packages to see if *they* depend on other packages and then installs those too.
 
 ### Dependency conflicts
-One issue you may run into is if `package1` requires a dependency, say `pydep`, to be version 1.1. When you run `conda install package1`, it will see that it depends on `pydep` version 2.1 and install both packages. Now for another project, you need to use `package2`. The problem is that this package depends on `pydep` version 1. When you run `conda install package2`, it will find this dependency and *downgrade* `pydep` to version 1.8. But this may cause `package1` to stop working.
+One issue you may run into is called a *dependency conflict*. Say `package1` requires a dependency, say `pydep version 2.1`. When you run `conda install package1`, it will see the dependency and install `package1` along with `pydep version 2.1`. Now for another project, you need to use `package2`. The problem is that this package depends on `pydep version 1.8`. When you run `conda install package2`, it will find this dependency and *downgrade* `pydep` to version 1.8. But this may cause `package1` to stop working.
 
 ### Conda environments
 Anaconda solves this issue by allow us to create *virtual environments* call **conda environments**. This is a special installation of Anaconda that you can install specific packages to while keeping it separate from your other packages. This helps avoid dependency conflicts, and can allow you to keep your scientific code to the minimum number of packages necessary to run it. That way, when you want to share this code with others, they simply have to install the list of packages you were running it with and it is guaranteed to work.
@@ -88,6 +88,6 @@ The following short tutorial will introduce loops, a useful programming concept 
 
 
 ## You made it!
-Hopefully you now have a grasp of the basics of Python and how to find help when you get stuck. Along the way, we learned some tools like Git, Anaconda and Jupyter that I hope you will use to improve the reproducability of your scientific code, as well as the ease of working with collaborators.  
+Hopefully you now have a grasp of the basics of Python and how to find help when you get stuck. Along the way, we learned some tools like Git, Anaconda and Jupyter that I hope you will use to improve the reproducibility of your scientific code, as well as the ease of working with collaborators.  
 
 Next week we will put all we've learned together and collaborate on a research problem in Git.
