@@ -94,4 +94,4 @@ Hopefully you now have a grasp of the basics of Python and how to find help when
 
 Next week we will put all we've learned together and collaborate on a research problem in Git.
 
-The recommended optional homework for this week is [Learn Python 10-12](https://www.codecademy.com/learn/learn-python). It will cover some advances tricks in Python, give a better overview of classes and go over how to read and write data from and to files in Python.
+The recommended optional homework for this week is [Learn Python 10-12](https://www.codecademy.com/learn/learn-python). It will cover some advanced tricks in Python, give a better overview of classes and go over how to read and write data from and to files in Python.
