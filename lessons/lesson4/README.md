@@ -32,10 +32,10 @@ source activate researchenv
 conda list
 ```
 
-Note: If you will be working in Jupyter notebooks in conda environments, a very useful package to have installed is [nb_conda_kernels](https://github.com/Anaconda-Platform/nb_conda_kernels). This allows you to change your active conda environment from within the Jupyter interface. Let's install it now.
+Note: If you will be working in Jupyter notebooks in conda environments, a very useful package to have installed is [nb_conda_kernels](https://github.com/Anaconda-Platform/nb_conda_kernels). This allows you to change your active conda environment from within the Jupyter interface. Let's install it into the `researchenv` environment now. If it is not currently active, make sure to `source activate researchenv`.
 
 ```bash
-conda install nb_conda_kernels
+conda install nb_conda_kernels ipykernel
 ```
 
 Now if you start a Jupyter server and login on your browser, you should be a new option in `Kernel -> Change kernel -> [list of conda envs]` (see image below).
@@ -54,6 +54,8 @@ Now let's check our installed packages. We should see `astropy` and the other de
 ```bash
 conda list
 ```
+
+Note: You will need to activate your conda environment each time you need to use it. Code that depends on packages installed in an environment require you to have that environment active.
 
 ### Sharing environments
 Say we want to send our environment as is to a collaborator so that they can run some code that we wrote. With Anaconda, we can export our current environment to an `environment.yml` config file, then our collaborator can rebuild our environment with that file.
