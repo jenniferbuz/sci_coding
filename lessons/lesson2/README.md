@@ -2,27 +2,32 @@
 In this lesson we will explore the basics of Python and learn to work in **Jupyter notebooks** (formerly known as **iPython** or *interactive Python* notebooks).
 
 ## Why Python?
-Python has quickly risen in popularity among programmers and scientists alike. It is a relatively new language compared to heavy-hitters like **C** and **JAVA**, but it will soon be the [third most popular programming language](https://www.tiobe.com/tiobe-index/). One of the main reasons Python has become so popular is that it is *relatively easy to read and learn*. Python was designed to put style and readibility first, making it easier to pick up for beginners. It is also quite intuitive (at least for English speakers), as many programs you write will read almost word-for-word as you would describe them in plain English. This is not to say that learning the ins-and-outs of Python is easy. Like any language, it takes a lot of practice to learn.
+Python has quickly risen in popularity among programmers and scientists alike. It is a relatively new language compared to heavy-hitters like **C** and **JAVA**, but it will soon be the [third most popular programming language](https://www.tiobe.com/tiobe-index/). One of the main reasons Python has become so popular is that it is *relatively easy to read and learn*. Python was designed to put style and readability first, making it easier to pick up for beginners. It is also quite intuitive (at least for English speakers), as many programs you write will read almost word-for-word as you would describe them in plain English. This is not to say that learning the ins-and-outs of Python is easy. Like any language, it takes a lot of practice to master.
 
-Two other reasons we use Python is because it is **free** and **well supported**. A large community has grown around developing excellent **open-source** (free) code for Python. Many well-tested packages for scientific analysis, image processing, and machine learning have been written specifically for Python and are freely available to the public. A good portion of this course will focus on finding, installing, and managing Python packages with Anaconda to take advantage of the huge body of open source code that you apply to your research.
-
+Two other reasons we use Python is because it is **free** and **well supported**. A large community has grown around developing excellent **open-source** (free) code for Python. Many well-tested packages for scientific analysis, image processing, and machine learning have been written specifically for Python and are freely available to the public. A good portion of this course will focus on finding, installing, and managing Python packages with Anaconda to take advantage of the huge body of open source code that you can apply to your research.
 
 
 ## Jupyter (iPython notebooks)
-The **Jupyter Notebook** is a web app that you can use to write, test, and create pretty documents of your code, all from your favorite web browser. At the end of this course, you will write up something to the effect of [this](http://nbviewer.jupyter.org/gist/jhemann/4569783) and post it to GitHub so that anyone can view and reproduce your results.
+The **Jupyter Notebook** is an interactive document that combines text and code. By the end of this course, you will be able to write up something to the effect of [this](http://nbviewer.jupyter.org/gist/jhemann/4569783) and post it to GitHub so that anyone can view your data, code, and reproducible results.
 
-For now, we'll use a cool website called [mybinder](https://mybinder.org/) that lets you share interactive Jupyter notebooks with others. This is a great way to show off your science analysis and allow anybody to step through each part of your code to reproduce your results.
+For now, we'll use a cool website called [mybinder](https://mybinder.org/) that not only allows you to view Jupyter notebooks, but also allows you to interactively run the code inside them. This is a new and exciting way that scientists can share their analysis in a truly transparent and reproducible way.
 
-The first part of this lesson is the quick tutorial on Jupyter notebooks below. Feel free to play around until you are comfortable. 
+The two main parts of this lesson are exercises in interactive Jupyter notebooks. The first part is a quick tutorial on Jupyter notebooks and how to use them. Feel free to play around until you are comfortable. 
 
 [Part 1: Jupyter Tutorial](https://mybinder.org/v2/gh/cjtu/sci_coding/master?filepath=lessons%2Flesson2%2Fdata%2Fjupyter_tutorial.ipynb)
 
-More documentation on Jupyter notebooks is available [here](https://jupyter-notebook.readthedocs.io/en/latest/notebook.html)
+The second part of this lesson is practice with some basic Python. You are given several functions in a Jupyter notebook that deal with **strings**, **booleans**, and **if statements**. You will need to fix and run the code in the notebook until the functions work as intended.
 
-## Making your own Jupyter Notebooks
+[Part 2: Python Practice](https://mybinder.org/v2/gh/cjtu/sci_coding/master?filepath=lessons%2Flesson2%2Fdata%2Flesson2.ipynb)
 
-### Running Jupyter locally with Anaconda installed
-Jupyter is installed by default with Anaconda. On your Linux or Mac computer with Anaconda installed, simply type `jupyter notebook` into the shell and wait for it to start running. You will see a bunch of text that looks something like this.
+The rest of this document involves getting Jupyter running locally and also remotely via ssh. Some of the configuration details are a little technical, but hopefully once you have it set up, you will be able to create, edit, and interact with Jupyter notebooks to start making reproducible scientific code.
+
+
+## Starting a local Jupyter server
+Websites like mybinder.org are great for sharing Jupyter notebooks online, but they are limited by the resources the website will allow you. Luckily, Jupyter comes with an easy way to start a **local server**, so that you can quickly create and test your notebooks on your computer.
+
+### Starting Jupyter locally (no ssh)
+Jupyter is installed by default with Anaconda. On any Linux or Mac computer with Anaconda installed, you can type `jupyter notebook` into the shell and wait for it to start running. Your shell should print out info as it configures the local server. When it is ready, you should see a line with a url starting with `http://localhost`. This means that your local server is running, and you can access it by navigating to that link in a web browser (the Jupyter team recommends *Mozilla Firefox* or *Google Chrome*).
 ```bash
 jupyter notebook
 # A bunch of setup lines
@@ -30,60 +35,88 @@ jupyter notebook
 http://localhost:8888/?token=c8de56fa4deed24899803e93c227592aef6538f93025fe01
 ```
 
-Open a web browser (the Jupyter team recommends *Mozilla Firefox* or *Google Chrome*) and go to the full url it specifies (including the token). If it prompts you to log in, return to the shell and find the `token`, a random string of characters after `?token=`, and enter it into the password field.
+You should see a plain `Jupyter` splash page. If you do, great! Skip to [Navigating the Jupyter Server](#navigating-the-jupyter-server).
 
-Now you should see the directory where you started the notebook. Jupyter notebooks are saved as `.ipynb`. You can open and edit existing notebooks, or start a new one by clicking `New -> Python 3`.
+### Starting Jupyter remotely (with ssh)
+If you are writing and running code on a remote computer (where Anaconda is installed), the steps above will still work as long as you use the graphical flag `ssh -X` or `ssh -Y` when you connect to the remote machine. The problem you would have is the web browser that opens will be very slow to type in because it needs to send a picture of the whole screen over the internet every time you type a character.
 
-To stop a Jupyter environment, return to the shell where it is running and type `ctrl+c`. You will then need to confirm by typing `y` when it prompts you.
+What we want is to start the Jupyter server on the remote machine (so we can edit and run our code there), but to see the server with a web browser on our local computer. This part is a little technical, but at the end of it you will have two simple scripts that:
 
-This is great if you are working on a Linux or Mac with Anaconda installed. If you are working with Anaconda over **ssh**, there are a couple extra steps.
+1) Start the Jupyter server on the remote computer
 
-### Configuring Jupyter for ssh
-If you are writing your code on a remote ocomputer (with Anaconda installed), we will need a couple additional steps. This part is a little technical, but at the end of it, you will have a nice Jupyter environment set up that will run your code on the remote server.
+2) Connect a local *port* on your computer to the remote server so that you can see the Jupyter server in a web browser on your local computer.
 
-#### startjupyter
-First we need to start Jupyter on the remote server, but we will do this in a particular way. The following command will start Jupyter on a particular `port` on the remote computer that we can then ssh to from our local computer.
+#### Starting Jupyter (on the remote computer)
+First access your remote computer with **ssh**.
+
+Next, we need to start Jupyter on the remote server with the `Jupyter notebook` command with two extra flags. The `--no-browser` flag stops Jupyter from trying to open a browser on the remote machine, while the `--port` flag starts the server on a specific **port**. 
 
 On the **remote computer**:
 ```bash
-#!/bin/bash
 jupyter notebook --no-browser --port=8080
 ```
 
-**Note**: Leave this shell running!
+**Note**: Leave this shell running! if you close this shell, it will kill the Jupyter server.
 
-#### connectjupyter
-Now we need to open a new shell on our **local computer** to connect a local port to the port we opened on the remote computer. This is called **port forwarding**. If you are working on a Mac / Linux computer. If on Windows, you can see a guide on port forwarding with Putty [here](https://www.linode.com/docs/networking/ssh/ssh-connections-using-putty-on-windows/#port-forwarding-ssh-tunnels-with-putty).
+#### Connecting to Jupyter (from the local computer)
+
+##### On Linux/Mac:
+We will use a second **ssh** to our remote computer to connect a local port to the port we started Jupyter on above. This is called **port forwarding**.
+Open a **new** shell/terminal on our **local computer**. 
 
 In a **new shell** on your **local computer**:
 ```bash
-ssh -v -N -L 8080:localhost:8080 <YOUR_SSH_ID>@<REMOTE_HOST>
+ssh -v -N -L 8080:localhost:8080 <YOUR_SSH_USER>@<REMOTE_HOST>
 ```
 
-Now you can head to a local web browser (again, Firefox and Chrome work best), and head to `localhost:8080`. You should see the Jupyter environment that you started on the remote computer! If it asks you to log in, copy the `TOKEN` from the remote shell into the password field. 
+This works the same as your regular ssh and you will need to log in. Once you have, your local port 8080 should be *forwarded* to the remote computer's port 8080. Now you can open a browser and navigate to `localhost:8080` and you should see the `Jupyter` server running on the remote machine.
 
-### Creating bash scripts to simplify the above
-The above two commands are hard to remember and can be confusing since one needs to be run locally and one via ssh. We know from previosu lessons how to make executable bash scripts, so let's make a couple simple scripts that are easier to remember.
+##### On Windows
+If on Windows, you have a couple options for connecting to your remote Jupyter server. 
 
-#### bash scripting startjupyter
-Create a directory in your home directory of the **remote machine** called `bin/`
+Using the Windows Subsystem for Linux, the above commands for Linux/Mac should work in your Windows bash shell.
+
+Using PuTTY, we will need to configure port-forwarding before we remote login to the remote server. Assuming you are comfortable with PuTTY and can ssh into the remote machine, below are the additional steps you will need to take:
+
+1) Open PuTTY Settings / Configuration
+
+2) On the left menu, go to **SSH** then **Tunnels**
+
+3) Enter 8080 as your **Source port**
+
+4) Enter 127.0.0.1:8080 as your **Destination**
+
+5) Click **Add**, then **Open** your connection to the remote machine.
+
+Now on the remote machine, start the Jupyter server as above. Finally, you should be able to open Chrome or Firefox on Windows, head to `localhost:8080` and see the remote `Jupyter` server.
+
+If you're having trouble finding the settings, there are pictures and a guide on port forwarding with PuTTY [here](https://www.linode.com/docs/networking/ssh/ssh-connections-using-putty-on-windows/#port-forwarding-ssh-tunnels-with-putty).
+
+### Creating scripts to simplify the above
+The above two commands would be a pain to run every time we want to open a Jupyter notebook. Luckily we know from previous lessons how to simplify our lives by making executable bash scripts!
+
+#### startjupyter script (to start Jupyter remotely)
+Ssh to your **remote machine**.
+
+Create a directory in your home directory called `bin/`. The **bin** or *binaries* directory is where executable scripts on your computer are saved. We will reserve this `home/bin/` directory to store our own user defined scripts (to keep them separate from operating system scripts).
 ```bash
 mkdir ~/bin
 ```
 
-Create a file in the  `~/bin` directory called `startjupyter`. Copy the following into it.
+Create a file in the  `~/bin` directory called `startjupyter`. Copy the command we used to start the notebook server into the file. Don't forget the shebang (`#!/bin/bash`)!
 ```bash
 #!/bin/bash
 jupyter notebook --no-browser --port=8080
 ```
 
-Make `startjupyter` executable with `chmod u+x`.
+Make the `startjupyter` script executable with `chmod u+x`.
 ```bash
 chmod u+x ~/bin/startjupyter
 ```
 
 Add the `~/bin` directory to your `PATH` by adding the following to your `.bash_profile`.
 ```bash
+# Added path to my scripts to system PATH
 export PATH=$PATH:/home/<your_username>/bin
 ```
 
@@ -92,10 +125,17 @@ Source your `.bash_profile` so that the change takes effect.
 source ~/.bash_profile
 ```
 
-Now you can start a Jupyter environment on port 8080 by typing `startjupyter` on your remote machine.
+Now you can start a Jupyter server from anywhere on your remote machine by typing `startjupyter`.
 
-#### bash scripting connectjupyter
-Create a file on your **local machine** in the  `/usr/local/bin/` directory called `connectjupyter`. Copy the following into it.
+#### Mac/Linux: connectjupyter script (to connect local port to remote Jupyter server)
+Open a new shell/Terminal on your **local computer**.
+
+Create a directory in your home directory called `bin/`. Again, this is where you can store your local shell scripts.
+```bash
+mkdir ~/bin
+```
+
+Create a file in the  `~/bin` directory called `connectjupyter`. This time we will make a slightly more general script. Copy the following into `connectjupyter`. Make sure to replace `<YOUR_SSH_ID>@<REMOTE_HOST>` with your personal ssh info.
 ```bash
 #!/bin/bash
 remoteport=${1:-8080}
@@ -103,57 +143,50 @@ localport=${2:-8080}
 ssh -v -N -L ${localport}:localhost:${remoteport} <YOUR_SSH_ID>@<REMOTE_HOST>
 ```
 
-Make `connectjupyter` executable with `chmod u+x`.
+Make `connectjupyter` executable with `chmod +x`.
 ```bash
-chmod u+x `/usr/local/bin/connectjupyter`
+chmod +x ~/bin/connectjupyter
 ```
 
-Now you can connect to your remote Jupyter environment with the `connectjupyter` command. If for some reason the remote port 8080 was taken, you can specify a remote port with the first option, i.e. `connectjupyter 8081`. If your local port 8080 is taken, you can specify it with the second option, i.e. `connectjupyter 8081 8081`.
-
-Now open up your web browser and head to `localhost:8080` (or whichever localport you specified in `connectjupyter`).
-
-## Finally, the Python Practice
-Hopefully you were able to get a Jupyter environment up and running. If not, skip this section and complete today's lesson on mybinder (link below). When you are finished, let me know and I can help get Jupyter set up.
-
-Now we need to get today's lesson onto your computer. We will do this by checking out the most up-to-date version of the [sci_coding](https://github.com/cjtu/sci_coding/) repository.
-
-### Forking the repository
-If you did not fork the repository last week, you will need to go to [lesson1](../lesson1) and follow the directions to fork the repository on GitHub and then clone it to your computer.
-
-### Getting your fork up to date
-When you fork a repository, you copy it at a specific **commit** or snapshot. If the original repository changes, your fork will get out of sync. A quick Google of "syncing fork GitHub" reveals this tutorial: https://help.github.com/articles/syncing-a-fork/ (when in doubt, Google! Your question has probably been asked before).
-
-Following the directions in the tutorial, we first need to cd to the `sci_coding` directory. 
-
-Then we `git fetch upstream`. This will check the upstream (the original repo) for changes, and then store them on a new branch called `upstream/master`.
-
-Then we need to switch to the `master` branch with `git checkout master`.
-
-Finally, we merge the **upstream changes** into `master` with `git merge upstream/master`. 
-
-The tutorial also notes that this only updates your local repository. To reflect the update in your fork on GitHub, you need to `git push`.
-
-To summarize:
-
+Add the `~/bin` directory to your `PATH` by adding the following to your `.bashrc` (Linux) or your `.bash_profile` (Mac).
 ```bash
-cd /path/to/local/sci_coding
-git fetch upstream
-git checkout master
-git merge upstream/master
-git push
+# Addded path to my scripts to system PATH
+export PATH=$PATH:/home/<your_username>/bin
 ```
 
-Now your fork should be up to date and you should be able to find the `lesson2/data` directory.
+Source your `.bashrc` (Linux) or your `.bash_profile` (Mac) so that the change takes effect.
+```bash
+source ~/.bashrc # or ~/.bash_profile
+```
 
-Navigate to `sci_coding/lesson2/data` and start a Jupyter environment. Then open up Jupyter in the web browser and select `lesson2.ipynb`. Work through today's lesson in the interactive notebook!
+Now you can connect to your remote Jupyter environment from your local shell/Terminal with the `connectjupyter` command! Make sure to run `startjupyter` on the remote machine first!
 
-### Mybinder version of part 2 of today's lesson
-If you're having trouble getting Jupyter to work, you can complete the rest of today's tutorial online at the link below:
+**Note on ports**: `connectjupyter` will default to connecting the local port 8080 to the remote port 8080. Make sure when you run `startjupyter` on your remote machine that it is directing you to `localhost:8080`. If for some reason this port was taken, your server will be opened on the next available port and you will see something like:
+```bash
+startjupyter
+# A bunch of setup lines
+[I 11:59:16.597 NotebookApp] The Jupyter Notebook is running at:
+http://localhost:8081/?token=c8de56fa4deed24899803e93c227592aef6538f93025fe01
+```
 
-[Part 2: Python Practice](https://mybinder.org/v2/gh/cjtu/sci_coding/master?filepath=lessons%2Flesson2%2Fdata%2Flesson2.ipynb).
+If this is the case, you need to direct your local port to the remote port `8081`. You can specify a remote port in the `connectjupyter` script by adding it as the first option (e.g. `connectjupyter 8081`). Then when you go to `localhost:8080` on your local machine, you will be able to see the Jupyter server.
 
+If you prefer to make both ports the same for simplicity, you can also use the second option to `connect jupyter`, (e.g. `connectjupyter 8081 8081`). Now you need to go to `localhost:8081` to see the remote Jupyter server.
+
+#### Windows
+On Windows, your PuTTY tunneling configuration should be saved and will execute each time, no need for a `connectjupyter` script. One hiccup is if you are sharing a machine among several people who may be opening servers on ports, you may not be guaranteed `8080`. In this case, I suggest picking a new port number somewhere in the range of `8070-8079` that nobody else uses. You will need to update your `startjupyter` script to open on your chosen port `--port=807X`, and then update your `Destination=127.0.0.1:807X` accordingly in PuTTY.
+
+
+## Navigating the Jupyter Server
+Now that you were able to start the local Jupyter server, you can start creating and editing Jupyter notebooks! If the splash page prompts you to log in, return to the shell where you started the server and find the `token`, a random string of characters after `?token=`. Copy and paste this into the password field.
+
+Now you should see the directory where you started the notebook. From here you can navigate your file-system. When you are in the folder you want, you can click `New -> Python 3` to start a new Jupyter notebook. You can also click on an `.ipynb` file to open it for editing.
+
+You can stop a Jupyter server at any time by returning to the shell where it is running and typing `ctrl+c`. Make sure to save your work first!
 
 ## That's it!
-Once you have completed the two Jupyter tutorials, you are finished for today! If you were unable to get a Jupyter environment running, let me know so I can give you a hand!
+Once you have completed the two Jupyter tutorials and got a Jupyter server running, you are finished for today! The Jupyter server configuration can be a bit tough, if you need a hand please let me know!
+
+Next class, we will be learning how to work with lists and dictionaries as well as how to write functions.
 
 Reminder that the pre-class homework for next lesson is Codecademy's [Learn-Python](https://www.codecademy.com/learn/learn-python) modules 4 and 5.
